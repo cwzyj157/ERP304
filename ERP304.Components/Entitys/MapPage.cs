@@ -4,7 +4,7 @@
     using System.Xml.Serialization;
 
     [XmlRoot(ElementName = "page")]
-    public class MapPage
+    public sealed class MapPage
     {
         private string _PageXml = "";
 

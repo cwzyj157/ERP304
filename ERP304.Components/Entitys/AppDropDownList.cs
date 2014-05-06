@@ -6,7 +6,7 @@ using ERP304.Components.Attributes;
 
 namespace ERP304.Components.Entitys
 {
-    public class AppDropDownList : BaseControl
+    public sealed class AppDropDownList : BaseControl
     {
         public AppDropDownList()
         {
@@ -36,7 +36,7 @@ namespace ERP304.Components.Entitys
         public List<PropertyOption> Options { get; set; }
     }
 
-    public class PropertyOption
+    public sealed class PropertyOption
     {
         [XmlText]
         public string Text { get; set; }

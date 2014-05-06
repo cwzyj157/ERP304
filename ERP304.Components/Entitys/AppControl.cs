@@ -227,7 +227,7 @@ namespace ERP304.Components.Entitys
     /// 控件类
     /// </summary>
     [XmlType(TypeName = "control")]
-    public class AppControl
+    public sealed class AppControl
     {
         public AppControl()
         {
@@ -272,10 +272,10 @@ namespace ERP304.Components.Entitys
         #region AppFind
 
         [XmlElement(ElementName = "view")]
-        public AppFindView View { get; set; }
+        public AppViewList View { get; set; }
 
         [XmlElement(ElementName = "query")]
-        public AppFindQuery Query { get; set; }
+        public AppFind Query { get; set; }
 
         #endregion AppFind
 
@@ -293,7 +293,7 @@ namespace ERP304.Components.Entitys
         #endregion AppGridMenu
     }
 
-    public class ShortCut
+    public sealed class ShortCut
     {
         public ShortCut()
         {
@@ -348,7 +348,7 @@ namespace ERP304.Components.Entitys
     /// <summary>
     /// 数据源定义节点
     /// </summary>
-    public class DataSource
+    public sealed class DataSource
     {
         public DataSource()
         {
@@ -395,7 +395,7 @@ namespace ERP304.Components.Entitys
         public Order Order { get; set; }
     }
 
-    public class Order
+    public sealed class Order
     {
         public Order()
         {
@@ -411,7 +411,7 @@ namespace ERP304.Components.Entitys
         public string Descending { get; set; }
     }
 
-    public class TextNode
+    public sealed class TextNode
     {
         public TextNode()
         {
@@ -422,7 +422,7 @@ namespace ERP304.Components.Entitys
         public string Text { get; set; }
     }
 
-    public class BoolNode
+    public sealed class BoolNode
     {
         public BoolNode()
         {
@@ -434,7 +434,7 @@ namespace ERP304.Components.Entitys
         public string Text { get; set; }
     }
 
-    public class NumberNode
+    public sealed class NumberNode
     {
         public NumberNode()
         {

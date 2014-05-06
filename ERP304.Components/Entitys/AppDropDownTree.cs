@@ -4,7 +4,7 @@ using ERP304.Components.Attributes;
 
 namespace ERP304.Components.Entitys
 {
-    public class AppDropDownTree: BaseControl
+    public sealed class AppDropDownTree : BaseControl
     {
         public AppDropDownTree()
         {
@@ -78,7 +78,7 @@ namespace ERP304.Components.Entitys
         public TextNode QueryReplace { get; set; }
     }
 
-    public class Url
+    public sealed class Url
     {
         [Hint(Describe = "链接文件地址")]
         [XmlAttribute(AttributeName = "value")]
@@ -88,7 +88,7 @@ namespace ERP304.Components.Entitys
         public List<Param> Params { get; set; }
     }
 
-    public class Param
+    public sealed class Param
     {
         [Hint(Describe = "后缀参数名称")]
         [XmlAttribute(AttributeName = "name")]

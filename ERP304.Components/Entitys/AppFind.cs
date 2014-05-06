@@ -16,77 +16,8 @@ namespace ERP304.Components.Entitys {
     //{
     //}
 
-    public class AppFindView {
-        public AppFindView() {
-            AppFindViewItems = new List<AppFindViewItem>();
-            ResultXmlUrl = "";
-            GroupId = "";
-        }
-
-        [Hint(Describe = "查询结果视图")]
-        [XmlAttribute(AttributeName = "resultxmlurl")]
-        public string ResultXmlUrl { get; set; }
-
-        [Hint(Describe = "历史查询所属的页面")]
-        [XmlAttribute(AttributeName = "groupid")]
-        public string GroupId { get; set; }
-
-        [XmlElement(ElementName = "item")]
-        public List<AppFindViewItem> AppFindViewItems { get; set; }
-    }
-
-    public class AppFindViewItem {
-        /// <summary>
-        /// 视图 id，定位视图用
-        /// </summary>
-        [XmlAttribute(AttributeName = "xmlid")]
-        [Hint(Describe = "视图id")]
-        public string XmlId { get; set; }
-
-        /// <summary>
-        /// 视图对应的 XML 文件地址
-        /// </summary>
-        [XmlAttribute(AttributeName = "xmlurl")]
-        [Hint(Describe = "视图XML路径")]
-        public string XmlUrl { get; set; }
-
-        [XmlText]
-        public string Title { get; set; }
-
-        [XmlAttribute(AttributeName = "viewid")]
-        [Hint(Describe = "视图id")]
-        public string ViewId { get; set; }
-
-        [XmlAttribute(AttributeName = "selected")]
-        [Hint(Describe = "是否默认视图", Type = FieldType.Boolean)]
-        public string IsSelected { get; set; }
-
-        private MapPage _SubPage = null;
-
-        [XmlIgnore]
-        public MapPage SubPage {
-            get {
-                if (!string.IsNullOrEmpty(XmlUrl) && _SubPage == null) {
-                    try {
-                        string path = PathHelper.MapPath(XmlUrl);
-
-                        _SubPage = XmlHelper.XmlDeserializeFromFile<MapPage>(path, System.Text.Encoding.Default);
-                        if (_SubPage != null) {
-                            _SubPage.Arrange();
-                        }
-                    }
-                    catch (Exception) {
-                    }
-                }
-
-                return _SubPage;
-            }
-            set { _SubPage = value; }
-        }
-    }
-
-    public class AppFindQuery {
-        public AppFindQuery() {
+    public sealed class AppFind {
+        public AppFind() {
             IsShowCheckboxDefault = "true";
             IsShowCheckbox = "false";
             IsShowQueryInResult = "false";
@@ -145,7 +76,7 @@ namespace ERP304.Components.Entitys {
         public AppFindQueryAdvanced Advanced { get; set; }
     }
 
-    public class AppFindQueryStandard {
+    public sealed class AppFindQueryStandard {
         [XmlArray(ElementName = "items")]
         [XmlArrayItem(ElementName = "item")]
         public List<AppFindQueryItem> Items { get; set; }
@@ -157,13 +88,13 @@ namespace ERP304.Components.Entitys {
         public string TitleWidth { get; set; }
     }
 
-    public class AppFindQueryAdvanced {
+    public sealed class AppFindQueryAdvanced {
         [XmlArray(ElementName = "items")]
         [XmlArrayItem(ElementName = "item")]
         public List<AppFindQueryItem> Items { get; set; }
     }
 
-    public class AppFindQueryItem {
+    public sealed class AppFindQueryItem {
         public AppFindQueryItem() {
             OtherAttributes = new Collection<XmlAttribute>();
             Type = AppFormItemType.Text.ToString();

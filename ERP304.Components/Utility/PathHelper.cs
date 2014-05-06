@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace ERP304.Components.Utility {
-    internal sealed class PathHelper {
+    public sealed class PathHelper {
         public static string MapPath(string path) {
             HttpContext context = HttpContext.Current;
             if (context != null) {

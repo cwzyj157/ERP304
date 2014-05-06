@@ -6,7 +6,7 @@ using ERP304.Components.Attributes;
 
 namespace ERP304.Components.Entitys
 {
-    public class AppNavBar : BaseControl
+    public sealed class AppNavBar : BaseControl
     {
         public AppNavBar()
         {
@@ -17,7 +17,7 @@ namespace ERP304.Components.Entitys
         public List<AppNavItem> NavsItems { get; set; }
     }
 
-    public class AppNavItem
+    public sealed class AppNavItem
     {
         [Hint(Describe = "Id")]
         [XmlAttribute(AttributeName = "id")]

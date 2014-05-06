@@ -4,7 +4,7 @@ using ERP304.Components.Attributes;
 
 namespace ERP304.Components.Entitys
 {
-    public class AppFormMenu
+    public sealed class AppFormMenu
     {
         [XmlArray(ElementName = "menus")]
         [XmlArrayItem(ElementName = "menu")]
@@ -15,7 +15,7 @@ namespace ERP304.Components.Entitys
         public List<ShortCut> ShortCuts { get; set; }
     }
 
-    public class Menu
+    public sealed class Menu
     {
         [XmlAttribute(AttributeName = "title")]
         [Hint(Describe = "菜单名称, '-'表示分隔线", IsRequired = true)]
@@ -25,7 +25,7 @@ namespace ERP304.Components.Entitys
         public List<MenuItem> MenuItems { get; set; }
     }
 
-    public class MenuItem
+    public sealed class MenuItem
     {
         /// <summary>
         /// 菜单项 id，可选
