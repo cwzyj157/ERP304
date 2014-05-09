@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using ERP304.Components.Attributes;
+using ERP304.Components.Enums;
 
-namespace ERP304.Components.Entitys
-{
+namespace ERP304.Components.Entitys {
     /// <summary>
     /// appForm控件
     /// </summary>
-    public class AppForm : BaseControl
-    {
-        public AppForm()
-        {
+    public class AppForm : BaseControl {
+        public AppForm() {
             Tabs = new List<AppFormTab>();
             ShowTab = "false";
+            this.ControlType = MapControlType.AppForm;
         }
 
         [Hint(Describe = "是否输出标签头", Type = FieldType.Boolean)]
@@ -24,10 +23,8 @@ namespace ERP304.Components.Entitys
         public List<AppFormTab> Tabs { get; set; }
     }
 
-    public class AppFormTab
-    {
-        public AppFormTab()
-        {
+    public class AppFormTab {
+        public AppFormTab() {
             Title = "";
             Sections = new List<AppFormSection>();
             Display = "false";
@@ -44,10 +41,8 @@ namespace ERP304.Components.Entitys
         public List<AppFormSection> Sections { get; set; }
     }
 
-    public class AppFormSection
-    {
-        public AppFormSection()
-        {
+    public class AppFormSection {
+        public AppFormSection() {
             Title = "";
             SecId = "";
             Display = "true";
@@ -103,10 +98,8 @@ namespace ERP304.Components.Entitys
     /// 每个子控件在反序列化的时候无法区分开，除非重写序列化
     /// 因此都合并为这个类
     /// </summary>
-    public class AppFormItem
-    {
-        public AppFormItem()
-        {
+    public class AppFormItem {
+        public AppFormItem() {
             Title = "";
             Type = AppFormItemType.Text.ToString();
             Field = "";
@@ -224,7 +217,7 @@ namespace ERP304.Components.Entitys
         #endregion hyperlink
 
         #region 非blank, hyperlink控件
-        
+
         [XmlAttribute(AttributeName = "createapi")]
         [Hint(Describe = "新增记录时，控件是否可填。0 为只读，1 为可填，默认值为 1")]
         public string Createapi { get; set; }
@@ -240,7 +233,7 @@ namespace ERP304.Components.Entitys
         [XmlAttribute(AttributeName = "assistanticon")]
         [Hint(Describe = "辅助录入图标")]
         public string AssistantIcon { get; set; }
-        
+
         [Hint(Describe = "图标宽度")]
         [XmlAttribute(AttributeName = "iconwidth")]
         public string IconWidth { get; set; }
@@ -343,8 +336,7 @@ namespace ERP304.Components.Entitys
         #endregion lookup
     }
 
-    public class SelectOption
-    {
+    public class SelectOption {
         [XmlAttribute(AttributeName = "value")]
         [Hint(Describe = "option value")]
         public string Value { get; set; }
@@ -354,8 +346,7 @@ namespace ERP304.Components.Entitys
         public string Text { get; set; }
     }
 
-    public class AppFromFunction
-    {
+    public class AppFromFunction {
         [XmlAttribute(AttributeName = "assembly")]
         [Hint(Describe = "option value")]
         public string Assembly { get; set; }
@@ -375,11 +366,10 @@ namespace ERP304.Components.Entitys
         [XmlArrayItem(ElementName = "param")]
         [Hint(Describe = "函数参数")]
         public List<FunctionParam> Params { get; set; }
-        
+
     }
 
-    public class FunctionParam
-    {
+    public class FunctionParam {
         [XmlText]
         public string Text { get; set; }
     }

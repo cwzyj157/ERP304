@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace ERP304.Components {
+namespace ERP304.Components.Enums {
 
     public enum AppFormItemType {
         [XmlEnum(Name = "text")]

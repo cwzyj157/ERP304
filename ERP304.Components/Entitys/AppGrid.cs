@@ -3,19 +3,18 @@ using System.Collections.ObjectModel;
 using System.Xml;
 using System.Xml.Serialization;
 using ERP304.Components.Attributes;
+using ERP304.Components.Enums;
 
-namespace ERP304.Components.Entitys
-{
+namespace ERP304.Components.Entitys {
     /// <summary>
     /// AppGrid和AppGridE在配置上是无法区分的，因此共用一个类
     /// </summary>
-    public class AppGrid : BaseControl
-    {
-        public AppGrid()
-        {
+    public class AppGrid : BaseControl {
+        public AppGrid() {
             Id = "";
             Describe = "";
             SerialType = "0";
+            this.ControlType = MapControlType.AppGrid;
         }
 
         [Hint(Describe = "id")]
@@ -47,29 +46,24 @@ namespace ERP304.Components.Entitys
         /// <summary>
         /// AppGrid和AppGridE在XML标签上无法区分，仅能根据cell.celltype属性是否有值来判断
         /// </summary>
-        public void Arrange()
-        {
-            if (Row != null)
-            {
+        public void Arrange() {
+            if (Row != null) {
                 var cellTypeCells = Row.AppGridCells.Find(a => !string.IsNullOrEmpty(a.CellType));
-                if (cellTypeCells != null)
-                {
-                    
+                if (cellTypeCells != null) {
+
                 }
             }
         }
     }
 
-    public class AppGridRow
-    {
-        public AppGridRow()
-        {
+    public class AppGridRow {
+        public AppGridRow() {
             Attributes = new List<AppControlAttribute>();
             AppGridCells = new List<AppGridCell>();
         }
-        
+
         [XmlArray(ElementName = "attributes")]
-        [XmlArrayItem(ElementName = "attribute", Type = typeof (AppControlAttribute))]
+        [XmlArrayItem(ElementName = "attribute", Type = typeof(AppControlAttribute))]
         public List<AppControlAttribute> Attributes { get; set; }
 
         [XmlElement(ElementName = "cell")]
@@ -79,25 +73,19 @@ namespace ERP304.Components.Entitys
         /// 这个类比较特殊，字段的样式属性是在AppGridCell中定义的
         /// 但是数据结构是在Attributes中定义，因此这里采用字典分类
         /// </summary>
-        public void Fill()
-        {
+        public void Fill() {
             Dictionary<string, AppControlAttribute> cells = new Dictionary<string, AppControlAttribute>();
-            
-            foreach (AppControlAttribute a in Attributes)
-            {
-                if (!string.IsNullOrEmpty(a.Field))
-                {
-                    if (!cells.ContainsKey(a.Field))
-                    {
+
+            foreach (AppControlAttribute a in Attributes) {
+                if (!string.IsNullOrEmpty(a.Field)) {
+                    if (!cells.ContainsKey(a.Field)) {
                         cells.Add(a.Field, a);
                     }
                 }
             }
 
-            foreach (AppGridCell c in AppGridCells)
-            {
-                if (!string.IsNullOrEmpty(c.Field) && cells.ContainsKey(c.Field))
-                {
+            foreach (AppGridCell c in AppGridCells) {
+                if (!string.IsNullOrEmpty(c.Field) && cells.ContainsKey(c.Field)) {
                     AppControlAttribute temp = cells[c.Field];
                     c.Name = temp.Name;
                     c.DataType = temp.DataType;
@@ -106,8 +94,7 @@ namespace ERP304.Components.Entitys
         }
     }
 
-    public class AppGridSummary
-    {
+    public class AppGridSummary {
         [Hint(Describe = "标题")]
         [XmlAttribute(AttributeName = "title")]
         public string Title { get; set; }
@@ -120,10 +107,8 @@ namespace ERP304.Components.Entitys
         public List<AppGridCell> AppGridCells { get; set; }
     }
 
-    public class AppGridCell : AppGridCellBase
-    {
-        public AppGridCell()
-        {
+    public class AppGridCell : AppGridCellBase {
+        public AppGridCell() {
             Field = "";
             Title = "";
             SumTotalField = "";
@@ -186,12 +171,12 @@ namespace ERP304.Components.Entitys
         public string CellType { get; set; }
 
         /// 新增记录时，控件是否可填。0 为只读，1 为可填，默认值为 1。这里跳过验证，放到验证器中验证可以指出具体是哪一列配置错误。
-        [XmlAttribute(AttributeName = "createapi")] 
+        [XmlAttribute(AttributeName = "createapi")]
         [Hint(Describe = "新增时能否编辑。0 为只读，1 为可填，默认值为 1"
             , InvalidMessage = "0 为只读，1 为可填，默认值为 1", PassValid = true)]
         public string Createapi { get; set; }
 
-        [XmlAttribute(AttributeName = "updateapi")] 
+        [XmlAttribute(AttributeName = "updateapi")]
         [Hint(Describe = "更新时能否编辑。0 为只读，1 为可填，默认值为 1"
             , InvalidMessage = "0 为只读，1 为可填，默认值为 1", PassValid = true)]
         public string Updateapi { get; set; }
@@ -224,8 +209,7 @@ namespace ERP304.Components.Entitys
     /// <summary>
     /// 单元格基类，共有属性，做规则校验时方便使用
     /// </summary>
-    public class AppGridCellBase
-    {
+    public class AppGridCellBase {
         [Hint(Describe = "数据来源字段名")]
         [XmlAttribute(AttributeName = "field")]
         public string Field { get; set; }

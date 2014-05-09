@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 using ERP304.Components.Attributes;
+using ERP304.Components.Enums;
 
-namespace ERP304.Components.Entitys
-{
-    public sealed class AppDropDownTree : BaseControl
-    {
-        public AppDropDownTree()
-        {
+namespace ERP304.Components.Entitys {
+    public class AppDropDownTree : BaseControl {
+        public AppDropDownTree() {
             TextField = new TextNode() { Text = "text" };
             ValueField = new TextNode() { Text = "value" };
             LevelField = new TextNode() { Text = "" };
+
+            this.ControlType = MapControlType.AppDropDownTree;
         }
 
         [Hint(Describe = "显示文本字段")]
@@ -78,8 +78,7 @@ namespace ERP304.Components.Entitys
         public TextNode QueryReplace { get; set; }
     }
 
-    public sealed class Url
-    {
+    public class Url {
         [Hint(Describe = "链接文件地址")]
         [XmlAttribute(AttributeName = "value")]
         public string Value { get; set; }
@@ -88,8 +87,7 @@ namespace ERP304.Components.Entitys
         public List<Param> Params { get; set; }
     }
 
-    public sealed class Param
-    {
+    public class Param {
         [Hint(Describe = "后缀参数名称")]
         [XmlAttribute(AttributeName = "name")]
         public string Name { get; set; }

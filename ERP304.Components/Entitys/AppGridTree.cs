@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using ERP304.Components.Attributes;
+using ERP304.Components.Enums;
 
-namespace ERP304.Components.Entitys
-{
+namespace ERP304.Components.Entitys {
     [XmlRoot(ElementName = "gridtree")]
-    public class AppGridTree : BaseControl
-    {
+    public class AppGridTree : BaseControl {
+        public AppGridTree() {
+            this.ControlType = MapControlType.AppGridTree;
+        }
         /// <summary>
         /// 网格树默认展开级别
         /// </summary>
@@ -43,14 +45,12 @@ namespace ERP304.Components.Entitys
 
     }
 
-    public class AppGridTreeExpandLevel
-    {
+    public class AppGridTreeExpandLevel {
         [XmlAttribute(AttributeName = "syncload")]
         public string IsSyncload { get; set; }
     }
 
-    public class AppGridTreeColor
-    {
+    public class AppGridTreeColor {
         [XmlElement(ElementName = "divborder")]
         public ColorItem DivBorder { get; set; }
 
@@ -62,62 +62,52 @@ namespace ERP304.Components.Entitys
         public List<ColorItem> Levels { get; set; }
     }
 
-        public class ColorItem
-        {
-            [XmlText]
-            public string ColorValue { get; set; }
-        }
+    public class ColorItem {
+        [XmlText]
+        public string ColorValue { get; set; }
+    }
 
-    public class AppGridTreeFixedTitles
-    {
+    public class AppGridTreeFixedTitles {
         [XmlElement(ElementName = "tr")]
         public List<AppGridTreeFixedTitleTr> Tr { get; set; }
     }
 
-    public class AppGridTreeFixedTitleTr
-    {
+    public class AppGridTreeFixedTitleTr {
         [XmlElement(ElementName = "td")]
         public List<AppGridTreeFixedTitleTd> Td { get; set; }
     }
 
-    public class AppGridTreeFixedTitleTd
-    {
+    public class AppGridTreeFixedTitleTd {
         [XmlText]
         public string Text { get; set; }
     }
 
-    public class AppGridTreeTitles
-    {
+    public class AppGridTreeTitles {
         [XmlElement(ElementName = "tr")]
         public List<AppGridTreeFixedTitleTr> Tr { get; set; }
     }
 
-    public class AppGridTreeQueryReplace
-    {
+    public class AppGridTreeQueryReplace {
         [XmlText]
         public string Text { get; set; }
     }
 
-    public class AppGridTreeRow
-    {
-        public AppGridTreeRow()
-        {
+    public class AppGridTreeRow {
+        public AppGridTreeRow() {
             Attributes = new List<AppControlAttribute>();
             Cells = new List<AppGridTreeCell>();
         }
-        
+
         [XmlArray(ElementName = "attributes")]
-        [XmlArrayItem(ElementName = "attribute", Type = typeof (AppControlAttribute))]
+        [XmlArrayItem(ElementName = "attribute", Type = typeof(AppControlAttribute))]
         public List<AppControlAttribute> Attributes { get; set; }
 
         [XmlElement(ElementName = "cell")]
         public List<AppGridTreeCell> Cells { get; set; }
     }
 
-    public class AppGridTreeCell : AppGridCellBase
-    {
-        public AppGridTreeCell()
-        {
+    public class AppGridTreeCell : AppGridCellBase {
+        public AppGridTreeCell() {
             //CellType = "text";
             Field = "";
             Title = "";

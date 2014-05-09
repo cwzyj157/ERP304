@@ -5,7 +5,7 @@ using System.Text;
 using System.Web;
 
 namespace ERP304.Components.Utility {
-    public sealed class PathHelper {
+    public class PathHelper {
         public static string MapPath(string path) {
             HttpContext context = HttpContext.Current;
             if (context != null) {

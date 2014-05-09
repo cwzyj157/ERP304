@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using ERP304.Components.Attributes;
+using ERP304.Components.Enums;
 
 
 namespace ERP304.Components.Entitys
 {
-    public sealed class AppDropDownList : BaseControl
+    public class AppDropDownList : BaseControl
     {
         public AppDropDownList()
         {
             TextField = new TextNode() { Text = "text" };
             ValueField = new TextNode() { Text = "value" };
+            this.ControlType = MapControlType.AppDropDownList;
         }
 
         [Hint(Describe = "标题")]
@@ -36,7 +38,7 @@ namespace ERP304.Components.Entitys
         public List<PropertyOption> Options { get; set; }
     }
 
-    public sealed class PropertyOption
+    public class PropertyOption
     {
         [XmlText]
         public string Text { get; set; }

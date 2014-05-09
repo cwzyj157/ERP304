@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Xml;
 using System.Xml.Serialization;
+using ERP304.Components.Enums;
 using ERP304.Components.Utility;
 using Mysoft.Map.Extensions.Xml;
 
@@ -16,11 +17,12 @@ namespace ERP304.Components.Entitys {
     //{
     //}
 
-    public sealed class AppFind {
+    public class AppFind : BaseControl {
         public AppFind() {
             IsShowCheckboxDefault = "true";
             IsShowCheckbox = "false";
             IsShowQueryInResult = "false";
+            this.ControlType = MapControlType.AppFind;
         }
 
         /// <summary>
@@ -74,9 +76,14 @@ namespace ERP304.Components.Entitys {
         /// </summary>
         [XmlElement(ElementName = "advanced")]
         public AppFindQueryAdvanced Advanced { get; set; }
+
+        [XmlIgnore]
+        public AppView View { get; set; }
     }
 
-    public sealed class AppFindQueryStandard {
+
+
+    public class AppFindQueryStandard {
         [XmlArray(ElementName = "items")]
         [XmlArrayItem(ElementName = "item")]
         public List<AppFindQueryItem> Items { get; set; }
@@ -88,13 +95,13 @@ namespace ERP304.Components.Entitys {
         public string TitleWidth { get; set; }
     }
 
-    public sealed class AppFindQueryAdvanced {
+    public class AppFindQueryAdvanced {
         [XmlArray(ElementName = "items")]
         [XmlArrayItem(ElementName = "item")]
         public List<AppFindQueryItem> Items { get; set; }
     }
 
-    public sealed class AppFindQueryItem {
+    public class AppFindQueryItem {
         public AppFindQueryItem() {
             OtherAttributes = new Collection<XmlAttribute>();
             Type = AppFormItemType.Text.ToString();

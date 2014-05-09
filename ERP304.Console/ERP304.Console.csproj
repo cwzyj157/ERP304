@@ -45,6 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\AppFind.cs" />
+    <Compile Include="Extensions\DirectoryInfoExtensions.cs" />
+    <Compile Include="MapXmlHelper.cs" />
+    <Compile Include="Utility\DirectoryHelper.cs" />
+    <Compile Include="Utility\FileHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using ERP304.Components.Attributes;
+using ERP304.Components.Enums;
 
-namespace ERP304.Components.Entitys
-{
+namespace ERP304.Components.Entitys {
     #region 控件类型
 
-    public static class ControlType
-    {
+    public static class ControlType {
         public const string AppPage = "page";
 
         public const string AppForm = "appForm";
@@ -39,8 +38,7 @@ namespace ERP304.Components.Entitys
         public const string AppNavItem = "navitem";
     }
 
-    public enum OperatorType
-    {
+    public enum OperatorType {
         [Hint(Describe = "等于")]
         [XmlEnum(Name = "eq")]
         Eq,
@@ -106,8 +104,7 @@ namespace ERP304.Components.Entitys
         Replace,
     }
 
-    public enum AppFormItemType
-    {
+    public enum AppFormItemType {
         [XmlEnum(Name = "text")]
         Text,
 
@@ -142,8 +139,7 @@ namespace ERP304.Components.Entitys
         Blank
     }
 
-    public enum AppGridCellType
-    {
+    public enum AppGridCellType {
         [XmlIgnore]
         None,
 
@@ -178,8 +174,7 @@ namespace ERP304.Components.Entitys
         Blank
     }
 
-    public enum RequireLevel
-    {
+    public enum RequireLevel {
         [XmlEnum(Name = "optional")]
         Optional = 0,
 
@@ -190,8 +185,7 @@ namespace ERP304.Components.Entitys
         Proposed = 2
     }
 
-    public enum SerialType
-    {
+    public enum SerialType {
         /// <summary>
         /// 不启用
         /// </summary>
@@ -210,13 +204,12 @@ namespace ERP304.Components.Entitys
 
     #endregion 控件类型
 
-    public class State
-    {
+    public class State {
         /// <summary>
         /// SQL校验是否通过
         /// </summary>
         public bool IsSqlPassed { get; set; }
-        
+
         /// <summary>
         /// 校验是否停止
         /// </summary>
@@ -227,21 +220,12 @@ namespace ERP304.Components.Entitys
     /// 控件类
     /// </summary>
     [XmlType(TypeName = "control")]
-    public sealed class AppControl
-    {
-        public AppControl()
-        {
+    public class AppControl {
+        public AppControl() {
             Id = "";
             Describe = "";
             State = new State();
         }
-
-        [Hint(PassValid = true)]
-        [XmlIgnore]
-        public State State { get; set; }
-
-        [XmlIgnore]
-        public string Verson { get; set; }
 
         [XmlAttribute(AttributeName = "id")]
         public string Id { get; set; }
@@ -258,7 +242,50 @@ namespace ERP304.Components.Entitys
         [XmlElement(ElementName = "form", Type = typeof(AppForm))]
         [XmlElement(ElementName = "grid", Type = typeof(AppGrid))]
         [XmlElement(ElementName = "nav", Type = typeof(AppNavBar))]
+        [XmlElement(ElementName = "query", Type = typeof(AppFind))]
         public BaseControl Control { get; set; }
+
+        #region AppGridMenu
+
+        [XmlElement(ElementName = "title")]
+        public TextNode MenuTitle { get; set; }
+
+        [XmlElement(ElementName = "html")]
+        public TextNode Html { get; set; }
+
+        [XmlArray(ElementName = "menu")]
+        [XmlArrayItem(ElementName = "menuitem")]
+        public List<MenuItem> Menutems { get; set; }
+
+        #endregion AppGridMenu
+
+        #region AppFormMenu
+
+        [XmlArray(ElementName = "menus")]
+        [XmlArrayItem(ElementName = "menu")]
+        public List<Menu> Menus { get; set; }
+
+        #endregion
+
+        #region AppFormMenu与AppGridMenu公用
+
+        [XmlArray(ElementName = "shortcuts"), XmlArrayItem(ElementName = "shortcut")]
+        public List<ShortCut> ShortCuts { get; set; }
+
+        #endregion
+
+        #region appViewList 及 AppFind公用 视图
+        [XmlElement(ElementName = "view")]
+        public AppView View { get; set; }
+        #endregion
+
+        #region  XmlIgnore
+        [Hint(PassValid = true)]
+        [XmlIgnore]
+        public State State { get; set; }
+
+        [XmlIgnore]
+        public string Verson { get; set; }
 
         [XmlIgnore]
         public string Describe { get; set; }
@@ -268,35 +295,11 @@ namespace ERP304.Components.Entitys
         /// </summary>
         [XmlIgnore]
         public object Token { get; set; }
-
-        #region AppFind
-
-        [XmlElement(ElementName = "view")]
-        public AppViewList View { get; set; }
-
-        [XmlElement(ElementName = "query")]
-        public AppFind Query { get; set; }
-
-        #endregion AppFind
-
-        #region AppGridMenu
-
-        [XmlElement(ElementName = "title")]
-        public TextNode MenuTitle { get; set; }
-
-        [XmlArray(ElementName = "shortcuts"), XmlArrayItem(ElementName = "shortcut")]
-        public List<ShortCut> ShortCuts { get; set; }
-
-        [XmlElement(ElementName = "html")]
-        public TextNode Html { get; set; }
-
-        #endregion AppGridMenu
+        #endregion
     }
 
-    public sealed class ShortCut
-    {
-        public ShortCut()
-        {
+    public class ShortCut {
+        public ShortCut() {
             DownIcon = "/_nav/mnuDown.gif";
         }
 
@@ -341,17 +344,16 @@ namespace ERP304.Components.Entitys
         public string Action { get; set; }
     }
 
-    public abstract class BaseControl
-    {
+    public abstract class BaseControl {
+        [XmlIgnore]
+        public MapControlType ControlType { get; protected set; }
     }
 
     /// <summary>
     /// 数据源定义节点
     /// </summary>
-    public sealed class DataSource
-    {
-        public DataSource()
-        {
+    public class DataSource {
+        public DataSource() {
             Entity = "";
             KeyName = "";
             SqlNode = new TextNode() { Text = "" };
@@ -372,8 +374,7 @@ namespace ERP304.Components.Entitys
         public string KeyName { get; set; }
 
         [XmlIgnore]
-        public string Sql
-        {
+        public string Sql {
             get { return SqlNode.Text; }
         }
 
@@ -386,7 +387,7 @@ namespace ERP304.Components.Entitys
         [Hint(Describe = "分页模式，默认为0，值为1时必须无重复列", Type = FieldType.Number)]
         [XmlAttribute(AttributeName = "pagemode")]
         public string PageMode { get; set; }
-        
+
         [XmlArray(ElementName = "dependencysql")]
         [XmlArrayItem(ElementName = "sql", Type = typeof(string))]
         public List<string> DependencySql { get; set; }
@@ -395,10 +396,8 @@ namespace ERP304.Components.Entitys
         public Order Order { get; set; }
     }
 
-    public sealed class Order
-    {
-        public Order()
-        {
+    public class Order {
+        public Order() {
             Field = "";
         }
 
@@ -411,10 +410,8 @@ namespace ERP304.Components.Entitys
         public string Descending { get; set; }
     }
 
-    public sealed class TextNode
-    {
-        public TextNode()
-        {
+    public class TextNode {
+        public TextNode() {
             Text = "";
         }
 
@@ -422,10 +419,8 @@ namespace ERP304.Components.Entitys
         public string Text { get; set; }
     }
 
-    public sealed class BoolNode
-    {
-        public BoolNode()
-        {
+    public class BoolNode {
+        public BoolNode() {
             Text = "false";
         }
 
@@ -434,10 +429,8 @@ namespace ERP304.Components.Entitys
         public string Text { get; set; }
     }
 
-    public sealed class NumberNode
-    {
-        public NumberNode()
-        {
+    public class NumberNode {
+        public NumberNode() {
             Text = "0";
         }
 

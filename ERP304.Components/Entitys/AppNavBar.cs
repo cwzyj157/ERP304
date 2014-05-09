@@ -3,22 +3,20 @@ using System.Collections.ObjectModel;
 using System.Xml;
 using System.Xml.Serialization;
 using ERP304.Components.Attributes;
+using ERP304.Components.Enums;
 
-namespace ERP304.Components.Entitys
-{
-    public sealed class AppNavBar : BaseControl
-    {
-        public AppNavBar()
-        {
+namespace ERP304.Components.Entitys {
+    public class AppNavBar : BaseControl {
+        public AppNavBar() {
             NavsItems = new List<AppNavItem>();
+            this.ControlType = MapControlType.AppNavBar;
         }
 
         [XmlElement(ElementName = "navitem")]
         public List<AppNavItem> NavsItems { get; set; }
     }
 
-    public sealed class AppNavItem
-    {
+    public class AppNavItem {
         [Hint(Describe = "Id")]
         [XmlAttribute(AttributeName = "id")]
         public string Id { get; set; }

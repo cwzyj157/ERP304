@@ -5,9 +5,9 @@ E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\E
 E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304.Components\bin\Debug\Mysoft.Map.Extensions.pdb
 E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304.Components\obj\Debug\ERP304.Components.dll
 E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304.Components\obj\Debug\ERP304.Components.pdb
-E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Components\obj\Debug\ERP304.Components.dll
-E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Components\obj\Debug\ERP304.Components.pdb
 E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Components\bin\ERP304.Components.dll
 E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Components\bin\ERP304.Components.pdb
 E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Components\bin\Mysoft.Map.Extensions.dll
 E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Components\bin\Mysoft.Map.Extensions.pdb
+E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Components\obj\Debug\ERP304.Components.dll
+E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Components\obj\Debug\ERP304.Components.pdb

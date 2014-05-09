@@ -53,6 +53,16 @@
   <ItemGroup>
     <Compile Include="Entitys\AppControlTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\EnumHelperTester.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ERP304.Console\ERP304.Console.csproj">
+      <Project>{b813349a-a086-4bda-b112-26648b0dddbd}</Project>
+      <Name>ERP304.Console</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
