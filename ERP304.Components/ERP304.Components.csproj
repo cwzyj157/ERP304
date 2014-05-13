@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\HintAttribute.cs" />
+    <Compile Include="Entitys\AppGridTreeEdit.cs" />
     <Compile Include="Entitys\AppView.cs" />
+    <Compile Include="Entitys\GridTree.cs" />
     <Compile Include="Entitys\Menu.cs" />
     <Compile Include="Enums\AppFormItemType.cs" />
     <Compile Include="Entitys\AppControl.cs" />

@@ -239,6 +239,7 @@ namespace ERP304.Components.Entitys {
         [XmlElement(ElementName = "list", Type = typeof(AppDropDownList))]
         [XmlElement(ElementName = "tree", Type = typeof(AppDropDownTree))]
         [XmlElement(ElementName = "gridtree", Type = typeof(AppGridTree))]
+        [XmlElement(ElementName = "gridtreeedit", Type = typeof(AppGridTreeEdit))]
         [XmlElement(ElementName = "form", Type = typeof(AppForm))]
         [XmlElement(ElementName = "grid", Type = typeof(AppGrid))]
         [XmlElement(ElementName = "nav", Type = typeof(AppNavBar))]
@@ -278,6 +279,8 @@ namespace ERP304.Components.Entitys {
         [XmlElement(ElementName = "view")]
         public AppView View { get; set; }
         #endregion
+
+
 
         #region  XmlIgnore
         [Hint(PassValid = true)]

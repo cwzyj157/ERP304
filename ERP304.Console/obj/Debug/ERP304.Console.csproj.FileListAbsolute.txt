@@ -11,3 +11,4 @@ E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\E
 E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Console\bin\Debug\nunit.framework.dll
 E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Console\obj\Debug\ERP304.Console.exe
 E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Console\obj\Debug\ERP304.Console.pdb
+E:\2014年重点工作\ERP304工作项\技术验证-测试代码\ERP304_验证\ERP304\ERP304.Console\obj\Debug\ERP304.Console.csprojResolveAssemblyReference.cache

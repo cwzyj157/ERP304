@@ -1,0 +1,12 @@
+appcontrol.control 为空.E:\MySoftCode\项目任务\ERP3.0.4平台更新03.12\Trunk - 副本\ERP\明源整体解决方案\Map\Cbgl\HTFX\HtzxFx_Main_Tx.xml
+appcontrol.control 为空.E:\MySoftCode\项目任务\ERP3.0.4平台更新03.12\Trunk - 副本\ERP\明源整体解决方案\Map\Cbgl\PUB\SelectProject.xml
+appcontrol.control 为空.E:\MySoftCode\项目任务\ERP3.0.4平台更新03.12\Trunk - 副本\ERP\明源整体解决方案\Map\Qmys\XMQMYSHZ\GridTree_Proj.xml
+appcontrol.control 为空.E:\MySoftCode\项目任务\ERP3.0.4平台更新03.12\Trunk - 副本\ERP\明源整体解决方案\Map\Report\Preview\RTS\ReportView.xml
+appcontrol.control 为空.E:\MySoftCode\项目任务\ERP3.0.4平台更新03.12\Trunk - 副本\ERP\明源整体解决方案\Map\Slxt\XSFW\Fwsz.xml
+appcontrol.control 为空.E:\MySoftCode\项目任务\ERP3.0.4平台更新03.12\Trunk - 副本\ERP\明源整体解决方案\Map\Slxt\XSFW\Xsfw_Pllr_Aj.xml
+appcontrol.control 为空.E:\MySoftCode\项目任务\ERP3.0.4平台更新03.12\Trunk - 副本\ERP\明源整体解决方案\Map\Slxt\XSFW\Xsfw_Pllr_Bcfa.xml
+appcontrol.control 为空.E:\MySoftCode\项目任务\ERP3.0.4平台更新03.12\Trunk - 副本\ERP\明源整体解决方案\Map\Slxt\XSFW\Xsfw_Pllr_Gjj.xml
+appcontrol.control 为空.E:\MySoftCode\项目任务\ERP3.0.4平台更新03.12\Trunk - 副本\ERP\明源整体解决方案\Map\Xmjd\XMPlan\ProjPlan_SetXgUser_SelectedGrid.xml
+appcontrol.control 为空.E:\MySoftCode\项目任务\ERP3.0.4平台更新03.12\Trunk - 副本\ERP\明源整体解决方案\Map\Xmjd\XMPlan\WorkResult.xml
+appcontrol.control 为空.E:\MySoftCode\项目任务\ERP3.0.4平台更新03.12\Trunk - 副本\ERP\明源整体解决方案\Map\Xmjd\XXJD\GCJD.xml
+

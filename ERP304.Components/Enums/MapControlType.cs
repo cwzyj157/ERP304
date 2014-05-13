@@ -6,24 +6,27 @@ using ERP304.Components.Utility;
 
 namespace ERP304.Components.Enums {
     public enum MapControlTypeAttachData {
-        Name
+        Name,
     }
 
     public enum MapControlType {
+        // 以下几个控件在ERP中未使用
         [AttachData(MapControlTypeAttachData.Name, "下拉控件基础组件")]
         AppDropDownBase,
         [AttachData(MapControlTypeAttachData.Name, "日期控件")]
         AppDateTime,
         [AttachData(MapControlTypeAttachData.Name, "日期控件II")]
         AppDateTimeII,
-        [AttachData(MapControlTypeAttachData.Name, "下拉控件")]
-        AppDropDownList,
-        [AttachData(MapControlTypeAttachData.Name, "下拉树控件")]
-        AppDropDownTree,
         [AttachData(MapControlTypeAttachData.Name, "下拉树控件II")]
         AppDropDownTreeII,
         [AttachData(MapControlTypeAttachData.Name, "动态列网格树控件")]
         AppDynamicGridTree,
+
+
+        [AttachData(MapControlTypeAttachData.Name, "下拉控件")]
+        AppDropDownList,
+        [AttachData(MapControlTypeAttachData.Name, "下拉树控件")]
+        AppDropDownTree,
         [AttachData(MapControlTypeAttachData.Name, "查询控件")]
         AppFind,
         [AttachData(MapControlTypeAttachData.Name, "二级界面表单控件")]
